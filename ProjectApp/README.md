@@ -3,8 +3,13 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
 
 ## Development server
+In your Windows PowerShell, navigate to your ProjectApp directory
+Iinside this directory(whcih hold the app itself), do the following:
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+Run `ng serve --open` for dev server, and it'll open the
+localhost for you
 
 ## Code scaffolding
 
