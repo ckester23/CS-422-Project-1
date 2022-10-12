@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+.centeredText {
+    text-align: center;
+}
+
+.about-section {
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.highScoreList {
+    display: flex;
+    justify-content: center;
+}
+
+
