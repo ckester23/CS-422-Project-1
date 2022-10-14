@@ -16,40 +16,40 @@ Justification for a New System
 The need for time series data is here to stay. While buzzwords like neural networks and deep learning are now common place in science journalism, time series analysis has also been a fundamental component of the artificial intelligence revolution of the past few decades. We see it being applied to everything from predicting effectiveness of COVID-19 lock-downs [:ref:`2<cite-2>`] to studying insulin effectiveness [:ref:`3<cite-3>`]. Our repository will fill a need in the field of time series analysis and therefore advance research and industry alike.
 
 
-It should be noted that there are existing repositories for time series data including: UEA & UCR Time Series Classification Repository [:ref:`1<cite-1>`] and Wolfram Data Repository (Time Series) [:ref:`4<cite-4>`]. However, these repositories fall short of our costumer's needs in several ways. One major drawback of many of these systems is simply a lack of data. To train predictive models, one often needs several datasets of high-quality data. Some repos have ample data, but do not provide crucial functionality for organizing time series data such as hierarchical and set structures. We plan to design our new system so that we can avoid the shortcomings of other repositories and find a solution that caters to all of our costumer's time series' needs.
+It should be noted that there are existing repositories for time series data including UEA & UCR Time Series Classification Repository [:ref:`1<cite-1>`] and Wolfram Data Repository (Time Series) [:ref:`4<cite-4>`]. However, these repositories fall short of our costumer's needs in several ways. One major drawback of many of these systems is a lack of data. To train predictive models, one often needs several datasets of high-quality data. Some repos have ample data, but do not provide crucial functionality for organizing time series data such as hierarchical and set structures. We plan to design our new system so that we can avoid the shortcomings of other repositories and find a solution that caters to all of our costumers' needs.
 
 
 Operational Features of the Proposed System
 ---------------------------------------------
 
-The primary function of our system will be to provide a repository of time series data to train and test analysis models. When a user requests a time series, they will have several options for what metadata (if any) they would like to specify for the data set. This could include options such as domain of data, maximum/minimum length, and number of variables. 
+The primary function of our system will be to provide a repository of time series data to train and test analysis models. Users will be able to select from a list of time series data sets with a variety of sizes, structures, and domains.
 
-After the user has specified what kind of time series data they are looking for, our application will provide them with a training set of data points. The user is then intended to use this data set in any way they wish to build a predictive model for the remaining data points in the time series (which will be specified when they receive the initial data points). The user will then input their predicted values for the remaining points at which point our program will rate the effectiveness of the predictions.
+After the user has selected which time series they wish to use, our application will provide them with a set of data points for training. The user is then intended to use this data set in any way they wish to build a predictive model for the remaining data points (which will be specified when they receive the initial csv file). The user will then input their predicted values for the remaining points at which point our program will rate the effectiveness of the predictions.
 
 
 User Classes
 -------------
 
 **Time Series Analysts** 
-	Our application will be useful to analysts in industry who do work with time series. The increased availability and specificity of time series data through the use of our repository will allow analysts to build more accurate and precise predictive models.
+	Our application will be useful to analysts in industry who do work with time series. The increased availability and specificity of time series data through the use of our repository will allow professionals to build more accurate and precise predictive models.
 
 
 **Researchers** 
-	Researchers in the field of artificial intelligence will find our repository useful in their research because it will give them access to the kind of specific and high quality data required in an academic setting.
+	Researchers in the field of artificial intelligence will also find our repository useful. It will give them access to the kind of specific and high quality data required in a research setting without having to scour several different repositories across the web.
 
 
 **Students**
-	By having the ability to specify metadata specifications for time series data sets, students will find our application useful because it will allow them to learn about time series analysis without having to wrangle large and messy data sets.
+	By standardizing the process of getting and working with time series data, students will be able to study time series analysis without having to go through the hassle of wrangling and cleaning up data. They will also be able to learn to build better models through the "high score" feature of our app, which allows easy comparison with others working in AI.
 
 
 **Contributers**
-	This class of users will for now be restricted to the DUX D-zine team as we build and expand the repository. They will be able to add time series data sets into the repository's backend framework and control updates and new releases of the application. This will allow us to adapt the repository according to feedback and also add more data for the benefit of the user classes listed above.
+	This class of users will (for now) be restricted to the DUX D-zine team as we build and expand the repository. They will be able to add time series data sets into the repository's backend framework and control updates and new releases of the application. This will allow us to adapt the repository according to feedback and also add more data for the benefit of the user classes listed above.
 
 
 Modes of Operation
 -------------------
 
-There will be a single mode of operation for all of our user classes. Within this mode users will be able to request time series data sets according to their specifications, receive the training data in the format of their choosing, and then test their predictions against a validation set kept hidden by the application. 
+There will be a single mode of operation for all of our user classes. Within this mode users will be able to select time series data, receive the training data in a csv file, and then test their predictions against a validation set kept hidden by the application. 
 
 
 Operational Scenarios 
@@ -65,18 +65,13 @@ Operational Scenarios
 	**Preconditions:**
 
 		#. The user must have system requirements satisfied
-		#. The user must have our application installed
+		#. The user must have the application installed
 
 	**Steps to Complete the Task:**
 
-		#. The user will specify properties that the data must fit
-
-			a. This will include domain, size boundaries, etc.
-
-		#. They will receive a list of potential data sets in the repository 
-		#. The user will choose the file type that they wish to download the data as
-		#. The user will download the data into their computer's "Downloads" folder
-		#. Finally, they will be given the option to upload predictive data for the remaining data points in the time series
+		#. The user will select which time series data set they wish to work with
+		#. They will then download the data into their computer's "Downloads" folder in the form of a .csv file
+		#. Then, they will be given the option to upload predictive data for the remaining data points in the time series
 
 	**Postconditions**
 		The user will now be on a screen that allows them to upload predictions for the rest of the data points. If they would like to test their predictive model, they can continue in the application as prompted.
@@ -96,10 +91,11 @@ Operational Scenarios
 
 	**Steps to Complete the Task:**
 	
-		#. The user will select the type of data they intend to upload to the application
-		#. They will select the file that matches the data type specified and confirm that they wish to upload it
+		#. The user will prepare their predictions in a specified format as a csv file
+		#. They will then upload the file to our application
+		#. The user will have the option to leave their information (e.g. name, GitHub account) for the purpose of the "high-score" charts
 		#. They will receive a calculated "rating" of their predictions
-		#. [*Possibly*] if their prediction is in the top 5 based on the score they receive, they will have the option to leave their name and information about the predictive model they used
+		#. If their prediction is in a specified top scorers range for the given data set, they will be notified by the GUI and their name will be added to the "high-score" page
 
 	**Postconditions**
 		The user now has some idea of the predictive ability of the model they are testing and potentially have improved their model with the additional training data.
@@ -125,4 +121,4 @@ Operational Scenarios
 		#. If the new addition of data requires additional features in the front end application, the contributer may make a new release of the application and push the updated application to end users
 
 	**Postconditions**
-		The new TS data set will be available in the application's repository. Potentially users will have updated their application if an update is necessary.
+		The new TS data set will be available in the application's repository. Potentially users will have to update their application depending on the nature of the data added.
