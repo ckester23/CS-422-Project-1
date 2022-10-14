@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ScoresService } from '../services/scores.service';
+
+export interface User {
+  name: String;
+  answer: String;
+  gitURL: string;
+  score: number
+}
 
 @Component({
   selector: 'app-test-model',
@@ -14,32 +22,52 @@ export class TestModelComponent implements OnInit {
     gitURL: ''
   });
 
-  public currentUser!: Object;
+  public currentUser!: User;
 
   public userString!: String;
 
-  constructor( private formBuilder: FormBuilder) { }
+  public currentScore!: number;
+
+  constructor( 
+    private formBuilder: FormBuilder, 
+    private scoreService: ScoresService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  public onSubmit() {
+  public onSubmit(): void {
     // save user input data
 
     //might make a formal global object for users
-    this.currentUser = {
-      name: (this.testForm.controls['name'].value), 
-      answer: (this.testForm.controls['answer'].value),
-      gitURL: (this.testForm.controls['gitURL'].value)
-    };
+    if (this.testForm.controls['name'].value){
+      if (this.testForm.controls['answer'].value){
+        if (this.testForm.controls['gitURL'].value){
+          this.currentUser = {
+            name: this.testForm.controls['name'].value,
+            answer: this.testForm.controls['answer'].value,
+            gitURL: this.testForm.controls['gitURL'].value,
+            score: this.sendDataToBack()
+          }
+        }
+      }
+    }
     
-    this.userString = (this.testForm.controls['name'].value) + ' ' +
-    (this.testForm.controls['answer'].value) + ' ' +
-    (this.testForm.controls['gitURL'].value);
-    
-    console.warn('You clicked submit', this.currentUser);
+    this.currentScore = this.currentUser.score;
 
-    this.testForm.reset;
+    this.scoreService.sendUserObject(this.currentUser);
+
+    console.warn('You clicked submit', this.currentUser);
+    
+  }
+
+  public onClear(): void {
+    this.testForm.reset();
+  }
+
+  private sendDataToBack(): number {
+    // send User data to back end, and receive a score
+    return 100;
   }
 
 }

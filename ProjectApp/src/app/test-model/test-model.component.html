@@ -1,26 +1,39 @@
-<form [formGroup]="testForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="name">
-            Name
-        </label>
-        <input id="name" type="text" formControlName="name">
-    </div>
-    <div>
-        <label for="answer">
-            Answer
-        </label>
-        <input id="answer" type="text" formControlName="answer">
-    </div>
-    <div>
-        <label for="gitURL">
-            GitURL
-        </label>
-        <input id="gitURL" type="text" formControlName="gitURL">
-    </div>
-    <button class="button" type="submit">Click Me</button>
-</form>
-
-<div>
-    <p>You Entered:</p>
-    <p>{{this.userString}}</p>
+<div class="centeredText">
+    <h3> Test Your Model </h3>
+    <p> Upload your information here </p>
 </div>
+
+
+<div class="centeredForm">
+    <form [formGroup]="testForm" (ngSubmit)="onSubmit()" (reset)="onClear()">
+        <div>
+            <label class="bufferedLabels" for="name">
+                Name:
+            </label>
+            <input id="name" type="text" formControlName="name">
+        </div>
+        <div>
+            <label class="bufferedLabels" for="answer">
+                Answer:
+            </label>
+            <input id="answer" type="text" formControlName="answer">
+        </div>
+        <div>
+            <label class="bufferedLabels" for="gitURL">
+                GitURL:
+            </label>
+            <input id="gitURL" type="text" formControlName="gitURL">
+        </div>
+        <button class="button bufferedButtons" type="submit">Submit</button>
+        <button class="button" type="reset">Clear</button>
+    </form>
+
+</div>
+
+<div class="centeredText">
+    <p>Your Information:</p>
+    <p>{{this.currentUser.name}}</p>
+    <p> Your Score: {{this.currentScore}}</p>
+</div>
+
+
