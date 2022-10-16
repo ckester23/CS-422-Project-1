@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ScoresService } from 'src/app/services/scores.service';
-import { User } from '../test-model/test-model.component';
+import { User } from 'src/app/User';
 
 @Component({
   selector: 'app-high-scores',

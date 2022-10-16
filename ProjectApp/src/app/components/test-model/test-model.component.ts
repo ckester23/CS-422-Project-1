@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ScoresService } from 'src/app/services/scores.service';
-
-export interface User {
-  name: String;
-  answer: String;
-  gitURL: string;
-  score: number
-}
+import { User } from 'src/app/User';
 
 @Component({
   selector: 'app-test-model',
