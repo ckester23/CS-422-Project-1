@@ -14,4 +14,8 @@
     justify-content: center;
 }
 
-
+.timeSeries {
+    border: 10px solid;
+    padding: 50px;
+    margin: 20px;
+}

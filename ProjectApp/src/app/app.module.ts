@@ -9,7 +9,6 @@ import { HighScoresComponent } from './components/high-scores/high-scores.compon
 import { TestModelComponent } from './components/test-model/test-model.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FramesComponent } from './components/frames/frames.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { FramesComponent } from './components/frames/frames.component';
     TestModelComponent,
     NavBarComponent,
     HeaderComponent,
-    FramesComponent
   ],
   imports: [
     BrowserModule,

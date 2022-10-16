@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Frame } from 'src/app/Frame';
 
 @Component({
   selector: 'app-home-page',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  title: string = 'DDZ TS Database B)'
-  about: string = 'here is our about section'
+  title: string = 'Dux D-Zine Time Series Database'
+  about: string = 'check out all the cool time series below!'
+
+  frame: Frame = {
+    name: "super cool fake time series"
+  }
 
   constructor() { }
 
