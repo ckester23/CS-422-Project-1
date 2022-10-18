@@ -11,7 +11,7 @@ import { MessageService } from './message.service';
 export class FrameService {
   getFrames(): Observable<Frame[]>{
     const frames = of(FRAMES)
-    this.messageService.add('returning data');
+    this.messageService.add('returning data')
     return frames;
   }
   constructor(private messageService: MessageService) { }
