@@ -4,16 +4,12 @@
 </div>
 
 <div class="centeredText">
-   <div class="timeSeries">
-    {{frame.name}}
-   </div>
-   <div class="timeSeries">
-    {{frame.name}}
-   </div>
-   <div class="timeSeries">
-    {{frame.name}}
-   </div>
-   <div class="timeSeries">
-    {{frame.name}}
-   </div>
+    <ul>
+        <div class="timeSeries" *ngFor="let frame of frames">
+            <h1>{{frame.frameTitle}}</h1>
+            <button type="button" (click)="onSelect(frame)">
+                Download Here!
+            </button>
+        </div>
+    </ul>
 </div>
