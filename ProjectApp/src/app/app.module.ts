@@ -9,6 +9,7 @@ import { HighScoresComponent } from './components/high-scores/high-scores.compon
 import { TestModelComponent } from './components/test-model/test-model.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
     TestModelComponent,
     NavBarComponent,
     HeaderComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,

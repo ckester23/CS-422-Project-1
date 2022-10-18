@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   selectedFrame?: Frame;
 
   getFrames(): void {
-    this.frames = this.frameService.getFrames();
+    this.frameService.getFrames().subscribe(frames => this.frames = frames);
   }
 
   onSelect(frame: Frame): void {
