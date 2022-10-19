@@ -1,48 +1,58 @@
-<h3 class="centeredText">High Scores</h3>
+<h3 class="centeredText">Score Board</h3>
 
+<h4 class="centeredText">High Scores</h4>
 <p class="centeredText">
     These folks are currently holding the top five spots!
     Check out their models by clicking their GitHub links
 </p>
 
 <div class="highScoreList" >
-    <div class="row" >
-        
-        <div class="col-5">
-            <div class="list-group-item">
-                <h3 class="list-group-item-header">#1</h3>
-                <h4 class="list-group-item-description">Name: {{this.firstPlaceUser.name}}</h4>
-                <p class="list-group-item-description">Score: {{this.firstScore}} </p>
-                <p class="list-group-item-description">Git: {{this.firstPlaceUser.gitURL}} </p>
-            </div>
-    
-            <div class="list-group-item">
-                <h3 class="list-group-item-header">#2</h3>
-                <h4 class="list-group-item-description">Name</h4>
-                <p class="list-group-item-description">Score</p>
-                <p class="list-group-item-description">Git</p>
-            </div>
-    
-            <div class="list-group-item">
-                <h3 class="list-group-item-header">#3</h3>
-                <h4 class="list-group-item-description">Name</h4>
-                <p class="list-group-item-description">Score</p>
-                <p class="list-group-item-description">Git</p>
-            </div>
-    
-            <div class="list-group-item">
-                <h3 class="list-group-item-header">#4</h3>
-                <h4 class="list-group-item-description">Name</h4>
-                <p class="list-group-item-description">Score</p>
-                <p class="list-group-item-description">Git</p>
-            </div>
-    
-            <div class="list-group-item">
-                <h3 class="list-group-item-header">#5</h3>
-                <h4 class="list-group-item-description">Name</h4>
-                <p class="list-group-item-description">Score</p>
-                <p class="list-group-item-description">Git</p>
-            </div>
-        </div>
+    <div class="borderedBox">
+        <h3>#1</h3>
+        <h4>Name: {{this.firstPlaceUser.name}}</h4>
+        <p>Score: {{this.firstPlaceUser.score}} </p>
+        <p>GitHub: {{this.firstPlaceUser.gitURL}}</p>
     </div>
+
+    <div class="borderedBox">
+        <h3>#2</h3>
+        <h4>Name: {{this.secondPlaceUser.name}}</h4>
+        <p>Score: {{this.secondPlaceUser.score}} </p>
+        <p>GitHub: {{this.secondPlaceUser.gitURL}}</p>
+    </div>
+
+</div>
+<div class="highScoreList" >
+    <div class="borderedBox">
+        <h3>#3</h3>
+        <h4>Name: {{this.thirdPlaceUser.name}}</h4>
+        <p>Score: {{this.thirdPlaceUser.score}} </p>
+        <p>GitHub: {{this.thirdPlaceUser.gitURL}}</p>
+    </div>
+
+    <div class="borderedBox">
+        <h3>#4</h3>
+        <h4>Name: {{this.fourthPlaceUser.name}}</h4>
+        <p>Score: {{this.fourthPlaceUser.score}} </p>
+        <p>GitHub: {{this.fourthPlaceUser.gitURL}}</p>
+    </div>
+
+    <div class="borderedBox">
+        <h3>#5</h3>
+        <h4>Name: {{this.fifthPlaceUser.name}}</h4>
+        <p>Score: {{this.fifthPlaceUser.score}} </p>
+        <p>GitHub: {{this.fifthPlaceUser.gitURL}}</p>
+    </div>
+
+</div>
+
+
+<h3 class="centeredText">Check out some of the other submissions below!</h3>
+
+<div class="scoreList">
+    <div *ngFor="let user of otherUsers">
+        <p>{{user.name}}  {{user.score}}  {{user.gitURL}}</p>
+        
+    </div>
+
 </div>

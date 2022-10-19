@@ -9,26 +9,40 @@ import { User } from 'src/app/user';
 })
 export class HighScoresComponent implements OnInit {
 
+  private dummyUser: User = {
+    name: "Dummy",
+    gitURL: "GitURL",
+    score: 0
+  };
+
   public firstPlaceUser: User = this.scoreService.firstPlaceUser;
-  public secondPlaceUser!: Object;
-  public thirdPlaceUser!: Object;
-  public fourthPlaceUser!: Object;
-  public fifthPlaceUser!: Object;
+  public secondPlaceUser: User = this.scoreService.secondPlaceUser;
+  public thirdPlaceUser: User = this.scoreService.thirdPlaceUser;
+  public fourthPlaceUser: User = this.scoreService.fourthPlaceUser;
+  public fifthPlaceUser: User = this.scoreService.fifthPlaceUser;
 
-  public firstScore = this.scoreService.firstPlace;
-
+  public otherUsers!: User[];
 
   constructor(private scoreService: ScoresService) { }
 
   ngOnInit(): void {
     this.scoreService.user.subscribe((_user: User) => {
-      console.warn("New User", _user);
-      //this.determineRank(_user); Object
-      this.firstPlaceUser = _user;
-      this.firstScore = this.scoreService.firstPlace;
       this.firstPlaceUser = this.scoreService.firstPlaceUser;
+      this.secondPlaceUser = this.scoreService.secondPlaceUser;
+      this.thirdPlaceUser = this.scoreService.thirdPlaceUser;
+      this.fourthPlaceUser = this.scoreService.fourthPlaceUser;
+      this.fifthPlaceUser = this.scoreService.fifthPlaceUser;    
+      this.addDroppedUser(_user);  
+    });
+  };
 
-    })
+  private addDroppedUser(_user: User) {
+    console.log("Made it to dropping user");
+    if (this.scoreService.checkPlace(_user.score) == 0) {
+      if (_user != this.dummyUser) {
+        this.otherUsers.push(_user);
+      }
+    }
   }
 
 }

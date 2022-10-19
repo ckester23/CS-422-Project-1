@@ -10,6 +10,7 @@ import { TestModelComponent } from './components/test-model/test-model.component
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { DatabasesComponent } from './components/databases/databases.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MessagesComponent } from './components/messages/messages.component';
     NavBarComponent,
     HeaderComponent,
     MessagesComponent,
+    DatabasesComponent,
   ],
   imports: [
     BrowserModule,
