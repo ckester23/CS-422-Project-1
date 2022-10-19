@@ -11,6 +11,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { DatabasesComponent } from './components/databases/databases.component';
+import { ScoresService } from './services/scores.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { DatabasesComponent } from './components/databases/databases.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ScoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -50,9 +50,10 @@
 <h3 class="centeredText">Check out some of the other submissions below!</h3>
 
 <div class="scoreList">
-    <div *ngFor="let user of otherUsers">
-        <p>{{user.name}}  {{user.score}}  {{user.gitURL}}</p>
-        
-    </div>
-
+    <ul>
+        <div *ngFor="let user of allUsers">
+            <p>{{user.name}}  {{user.score}}  {{user.gitURL}}</p>
+            
+        </div>
+    </ul>
 </div>

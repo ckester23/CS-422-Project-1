@@ -21,7 +21,7 @@ export class HighScoresComponent implements OnInit {
   public fourthPlaceUser: User = this.scoreService.fourthPlaceUser;
   public fifthPlaceUser: User = this.scoreService.fifthPlaceUser;
 
-  public otherUsers!: User[];
+  public allUsers: Array<User> = this.scoreService.allUsers;
 
   constructor(private scoreService: ScoresService) { }
 
@@ -32,17 +32,12 @@ export class HighScoresComponent implements OnInit {
       this.thirdPlaceUser = this.scoreService.thirdPlaceUser;
       this.fourthPlaceUser = this.scoreService.fourthPlaceUser;
       this.fifthPlaceUser = this.scoreService.fifthPlaceUser;    
-      this.addDroppedUser(_user);  
+
+      this.allUsers = this.scoreService.allUsers;
+      
     });
   };
 
-  private addDroppedUser(_user: User) {
-    console.log("Made it to dropping user");
-    if (this.scoreService.checkPlace(_user.score) == 0) {
-      if (_user != this.dummyUser) {
-        this.otherUsers.push(_user);
-      }
-    }
-  }
+
 
 }

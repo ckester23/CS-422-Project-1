@@ -17,24 +17,28 @@ export class ScoresService {
   private userData = new Subject<User>();
   public user: Observable<User> = this.userData.asObservable();
 
-  public firstPlace: number = 0;
-  public secondPlace: number = 0;
-  public thirdPlace: number = 0;
-  public fourthPlace: number = 0;
-  public fifthPlace: number = 0;
-
   public firstPlaceUser: User = this.dummyUser;
   public secondPlaceUser: User = this.dummyUser;
   public thirdPlaceUser: User = this.dummyUser;
   public fourthPlaceUser: User = this.dummyUser;
   public fifthPlaceUser: User = this.dummyUser;
 
+  public allUsers: Array<User> = [];
+
   constructor() {}
 
   public sendUserObject(_user: User) {
     // takes in a new user, returns the new dropped user (?)
-    this.setPlace(_user);
+    let droppedUser = this.setPlace(_user);
+    this.addDroppedUser(droppedUser);
     this.userData.next(_user);
+  }
+
+  private addDroppedUser(_dropped: User) {
+
+    if (_dropped != this.dummyUser) {
+      this.allUsers.push(_dropped);
+    }
   }
 
   private setPlace(_user: User) : User {
@@ -88,7 +92,7 @@ export class ScoresService {
     }
   }
 
-  public checkPlace(_score: number) : number{ 
+  private checkPlace(_score: number) : number{ 
     // return place that the score should have, if at all
 
     // check if even makes scoreboard
