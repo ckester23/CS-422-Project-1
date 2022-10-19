@@ -1,0 +1,15 @@
+<div class="centeredText">
+    <h1>{{ title.toUpperCase() }}</h1>
+    <div>{{ about }}</div>
+</div>
+
+<div class="centeredText">
+    <ul>
+        <div class="timeSeries" *ngFor="let frame of frames">
+            <h1>{{frame.frameTitle}}</h1>
+            <button type="button" (click)="onSelect(frame)">
+                Download Here!
+            </button>
+        </div>
+    </ul>
+</div>

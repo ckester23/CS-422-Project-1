@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HighScoresComponent } from './high-scores/high-scores.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { TestModelComponent } from './test-model/test-model.component';
+import { HighScoresComponent } from './components/high-scores/high-scores.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { TestModelComponent } from './components/test-model/test-model.component';
 
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
