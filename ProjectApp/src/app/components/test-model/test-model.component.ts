@@ -12,12 +12,14 @@ export class TestModelComponent implements OnInit {
 
   private dummyUser: User = {
     name: "Dummy",
+    databaseName: "Database",
     gitURL: "GitURL",
     score: 0
   }
 
   testForm = this.formBuilder.group( {
     name:'',
+    dataFile:'',
     gitURL: ''
   });
 
@@ -37,27 +39,29 @@ export class TestModelComponent implements OnInit {
     // save user input data
 
     //might make a formal global object for users
-    if (this.testForm.controls['name'].value){
-      if (this.testForm.controls['gitURL'].value){
+    if (this.testForm.controls['name'].value) {
+      if (this.testForm.controls['gitURL'].value) {
         this.currentUser = {
           name: this.testForm.controls['name'].value,
+          databaseName: "database",
           gitURL: this.testForm.controls['gitURL'].value,
-          score: this.sendDataToBack()
+          score: this.getScore()
         }
       }
     }
     
     this.currentScore = this.currentUser.score;
 
-    this.scoreService.sendUserObject(this.currentUser);
-    
+    if (this.currentUser.name != '' ) {
+      this.scoreService.sendUserObject(this.currentUser);
+    }
   }
 
   public onClear(): void {
     this.testForm.reset();
   }
 
-  private sendDataToBack(): number {
+  private getScore(): number {
     // send User data to back end, and receive a score
 
     //currently chooses a random score

@@ -4,7 +4,7 @@
 </div>
 
 
-<div class="centeredForm">
+<div class="centeredForm" >
     <form [formGroup]="testForm" (ngSubmit)="onSubmit()" (reset)="onClear()">
         <div>
             <label class="bufferedLabels" for="name">
@@ -17,6 +17,12 @@
                 GitURL:
             </label>
             <input id="gitURL" type="text" formControlName="gitURL">
+        </div>
+        <div>
+            <label class="bufferedLabels" for="dataFile">
+                Data File:
+            </label>
+            <input class="bufferChooseFile" id="dataFile" type="file" formControlName="dataFile">
         </div>
         <button class="button bufferedButtons" type="submit">Submit</button>
         <button class="button" type="reset">Clear</button>
