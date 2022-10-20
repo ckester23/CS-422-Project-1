@@ -8,16 +8,11 @@ import { FrameService } from 'src/app/services/frame.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-<<<<<<< HEAD
   title: string = 'Dux D-Zine Time Series Database'
   about: string = 'check out all the cool time series below!'
 
   frames: Frame[] = [];
   selectedFrame?: Frame;
-
-  ngOnInit(): void {
-    this.getFrames();
-  }
 
   getFrames(): void {
     this.frameService.getFrames().subscribe(frames => this.frames = frames);
@@ -29,11 +24,7 @@ export class HomePageComponent implements OnInit {
 
   constructor(private frameService: FrameService) {}
 
-=======
-  constructor(private frameService: FrameService) {}
-
   ngOnInit(): void {
   }
->>>>>>> bab20773cec66e187c60d9403fee1beb9c5b1ed4
 
 }
