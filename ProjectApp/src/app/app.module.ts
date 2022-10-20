@@ -11,6 +11,8 @@ import { TestModelComponent } from './components/test-model/test-model.component
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { DatabasesComponent } from './components/databases/databases.component';
+import { ScoresService } from './services/scores.service';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
@@ -24,6 +26,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     NavBarComponent,
     HeaderComponent,
     MessagesComponent,
+    DatabasesComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [ScoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
