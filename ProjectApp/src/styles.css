@@ -14,8 +14,13 @@
     justify-content: center;
 }
 
-.timeSeries {
-    border: 10px solid;
+.borderedBox {
+    border: 10px solid gray;
     padding: 50px;
     margin: 20px;
+}
+
+.scoreList {
+    display: flex;
+    justify-content: center;
 }

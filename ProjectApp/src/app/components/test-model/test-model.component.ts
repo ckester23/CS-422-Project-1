@@ -10,15 +10,18 @@ import { User } from 'src/app/user';
 })
 export class TestModelComponent implements OnInit {
 
+  private dummyUser: User = {
+    name: "Dummy",
+    gitURL: "GitURL",
+    score: 0
+  }
+
   testForm = this.formBuilder.group( {
     name:'',
-    answer: '',
     gitURL: ''
   });
 
-  public currentUser!: User;
-
-  public userString!: String;
+  public currentUser: User = this.dummyUser;
 
   public currentScore!: number;
 
@@ -35,14 +38,11 @@ export class TestModelComponent implements OnInit {
 
     //might make a formal global object for users
     if (this.testForm.controls['name'].value){
-      if (this.testForm.controls['answer'].value){
-        if (this.testForm.controls['gitURL'].value){
-          this.currentUser = {
-            name: this.testForm.controls['name'].value,
-            answer: this.testForm.controls['answer'].value,
-            gitURL: this.testForm.controls['gitURL'].value,
-            score: this.sendDataToBack()
-          }
+      if (this.testForm.controls['gitURL'].value){
+        this.currentUser = {
+          name: this.testForm.controls['name'].value,
+          gitURL: this.testForm.controls['gitURL'].value,
+          score: this.sendDataToBack()
         }
       }
     }
@@ -50,8 +50,6 @@ export class TestModelComponent implements OnInit {
     this.currentScore = this.currentUser.score;
 
     this.scoreService.sendUserObject(this.currentUser);
-
-    console.warn('You clicked submit', this.currentUser);
     
   }
 
@@ -61,7 +59,10 @@ export class TestModelComponent implements OnInit {
 
   private sendDataToBack(): number {
     // send User data to back end, and receive a score
-    return 100;
+
+    //currently chooses a random score
+    let score = Math.floor(Math.random() * 100);
+    return score;
   }
 
 }
