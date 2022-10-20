@@ -24,3 +24,13 @@
     display: flex;
     justify-content: center;
 }
+
+.bufferChooseFile {
+    padding: 2px;
+}
+
+.centeredForm {
+    border: 5px solid gray;
+    padding: 25px;
+    margin: 10px;
+}
