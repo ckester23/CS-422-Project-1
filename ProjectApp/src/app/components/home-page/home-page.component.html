@@ -6,10 +6,7 @@
 <div class="centeredText">
     <ul>
         <div class="timeSeries" *ngFor="let frame of frames">
-            <h1>{{frame.frameTitle}}</h1>
-            <button type="button" (click)="onSelect(frame)">
-                Download Here!
-            </button>
+            <h1>{{frame.frameName}}</h1>
         </div>
     </ul>
 </div>

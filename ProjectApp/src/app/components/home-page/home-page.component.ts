@@ -14,6 +14,10 @@ export class HomePageComponent implements OnInit {
   frames: Frame[] = [];
   selectedFrame?: Frame;
 
+  ngOnInit(): void {
+    this.getFrames();
+  }
+
   getFrames(): void {
     this.frameService.getFrames().subscribe(frames => this.frames = frames);
   }
@@ -24,8 +28,5 @@ export class HomePageComponent implements OnInit {
 
   constructor(private frameService: FrameService) {}
 
-  ngOnInit(): void {
-    this.getFrames();
-  }
 
 }
