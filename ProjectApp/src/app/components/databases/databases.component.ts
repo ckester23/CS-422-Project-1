@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Frame } from 'src/app/frame';
+import { mockFrames } from 'src/app/mock-frames';
 
 @Component({
   selector: 'app-databases',
@@ -12,11 +13,7 @@ export class DatabasesComponent implements OnInit {
   about: string = 'check out all the cool time series below!'
 
   // dummy ts
-  tsFrames: Frame[] = [{
-    ts: [],
-    setName: "foo",
-    isSet: false,
-  }]
+  tsFrames: Frame[] = mockFrames;
 
   constructor() {}
 
