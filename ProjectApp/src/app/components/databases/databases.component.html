@@ -5,9 +5,9 @@
 
 <div class="centeredText">
     <ul>
-        <div class="borderedBox" *ngFor="let frame of frames">
-            <h1>{{frame.frameTitle}}</h1>
-            <button type="button" (click)="onSelect(frame)">
+        <div class="borderedBox" *ngFor="let frame of tsFrames">
+            <h1>{{frame.setName}}</h1>
+            <button type="button">
                 Download Here!
             </button>
         </div>
