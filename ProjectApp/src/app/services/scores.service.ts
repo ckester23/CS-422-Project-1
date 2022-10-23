@@ -46,9 +46,11 @@ export class ScoresService {
   }
 
   private requestAllUsers() {
-    // request list of all users from the back-end
+    // request list of all users from the back-end as a const
 
-    // call setPlace on all of them to set up heirarchy
+    // call setPlace on the const to set up heirarchy
+
+    // do this.allUsers = the const(user list from backend)
   }
 
   private setPlace(_user: User) : User {

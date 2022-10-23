@@ -10,3 +10,7 @@
 .bufferedButtons {
     margin-right: 50%;
 }
+
+.file-input {
+    display: none;
+  }

@@ -19,10 +19,17 @@
             <input id="gitURL" type="text" formControlName="gitURL">
         </div>
         <div>
-            <label class="bufferedLabels" for="dataFile">
-                Data File:
+            <label class="bufferedLabels" for="modelFile">
+                Your Model:
             </label>
-            <input class="bufferChooseFile" id="dataFile" type="file" formControlName="dataFile">
+            <input  class="bufferChooseFile" id="modelFile" type="file" (change)="modelChange($event)" accept=".csv, .dat">
+        </div>
+
+        <div>
+            <label class="bufferedLabels" for="databaseFile">
+                Your Database:
+            </label>
+            <input class="bufferChooseFile" id="databaseFile" type="file" (change)="databaseChange($event)" accept=".csv, .dat">
         </div>
         <button class="button bufferedButtons" type="submit">Submit</button>
         <button class="button" type="reset">Clear</button>
@@ -32,8 +39,9 @@
 
 <div class="centeredText">
     <p>Your Information:</p>
-    <p>{{this.currentUser.name}}</p>
-    <p> Your Score: {{this.currentScore}}</p>
+    <p>{{this.outputUser.name}}</p>
+    <p> Your Score: {{this.outputUser.score}}</p>
 </div>
+
 
 
