@@ -9,8 +9,8 @@ import { FrameService } from 'src/app/services/frame.service';
 })
 export class DatabasesComponent implements OnInit {
 
-  title: string = 'Dux D-Zine Time Series Database'
-  about: string = 'check out all the cool time series below!'
+  title: string = 'DATSR Time Series Database'
+  about: string = 'Check out all of the Amazing time series below!'
 
   frames: Frame[] = [];
   selectedFrame?: Frame;

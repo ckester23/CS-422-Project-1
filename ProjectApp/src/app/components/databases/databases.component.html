@@ -1,14 +1,14 @@
 <div class="centeredText">
-    <h1>{{ title.toUpperCase() }}</h1>
-    <div>{{ about }}</div>
+    <h2>{{ title }}</h2>
+    <p>{{ about }}</p>
 </div>
 
 <div class="centeredText">
     <ul>
         <div class="borderedBox" *ngFor="let frame of frames">
-            <h1>{{frame.frameTitle}}</h1>
+            <h4>{{frame.frameTitle}}</h4>
             <button type="button" (click)="onSelect(frame)">
-                Download Here!
+                Download
             </button>
         </div>
     </ul>
