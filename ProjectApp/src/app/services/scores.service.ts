@@ -10,6 +10,7 @@ export class ScoresService {
 
   private dummyUser: User = {
     name: "Dummy",
+    databaseName: "Database",
     gitURL: "GitURL",
     score: 0
   };
@@ -17,12 +18,15 @@ export class ScoresService {
   private userData = new Subject<User>();
   public user: Observable<User> = this.userData.asObservable();
 
+  // these will be changed to whatever the backend is holding
+
   public firstPlaceUser: User = this.dummyUser;
   public secondPlaceUser: User = this.dummyUser;
   public thirdPlaceUser: User = this.dummyUser;
   public fourthPlaceUser: User = this.dummyUser;
   public fifthPlaceUser: User = this.dummyUser;
 
+  // temporary
   public allUsers: Array<User> = [];
 
   constructor() {}
@@ -39,6 +43,14 @@ export class ScoresService {
     if (_dropped != this.dummyUser) {
       this.allUsers.push(_dropped);
     }
+  }
+
+  private requestAllUsers() {
+    // request list of all users from the back-end as a const
+
+    // call setPlace on the const to set up heirarchy
+
+    // do this.allUsers = the const(user list from backend)
   }
 
   private setPlace(_user: User) : User {

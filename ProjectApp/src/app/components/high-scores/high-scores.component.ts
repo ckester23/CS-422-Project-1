@@ -9,12 +9,6 @@ import { User } from 'src/app/user';
 })
 export class HighScoresComponent implements OnInit {
 
-  private dummyUser: User = {
-    name: "Dummy",
-    gitURL: "GitURL",
-    score: 0
-  };
-
   public firstPlaceUser: User = this.scoreService.firstPlaceUser;
   public secondPlaceUser: User = this.scoreService.secondPlaceUser;
   public thirdPlaceUser: User = this.scoreService.thirdPlaceUser;
@@ -37,7 +31,4 @@ export class HighScoresComponent implements OnInit {
       
     });
   };
-
-
-
 }
