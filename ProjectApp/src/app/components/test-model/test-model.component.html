@@ -1,8 +1,9 @@
 <div class="centeredText">
-    <h3> Test Your Model </h3>
-    <p> Upload your information here </p>
+    <h3> Upload Your Files </h3>
+    <p> You can test your model here </p>
+    <p> Or you can upload a database for others to test against </p>
+    <p> Or both! </p>
 </div>
-
 
 <div class="centeredForm" >
     <form [formGroup]="testForm" (ngSubmit)="onSubmit()" (reset)="onClear()">
@@ -39,8 +40,8 @@
 
 <div class="centeredText">
     <p>Your Information:</p>
-    <p>{{this.outputUser.name}}</p>
-    <p> Your Score: {{this.outputUser.score}}</p>
+    <p>{{this.outputString}}</p>
+    <p> Your Score: {{this.scoreString}}</p>
 </div>
 
 
