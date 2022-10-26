@@ -1,8 +1,22 @@
 .navbar-custom {
-    background-color: aliceblue;
+	background-color: #337ab7;
 }
 
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
-    color: black;
+.navbar-brand{
+	font-size: 2em;
+    color: white;
 }
+
+.nav>li>a:focus, .nav>li>a:hover {
+	background-color: transparent;
+}
+
+.nav-cat {
+	color: white;
+}
+
+.nav-cat:hover {
+	color: #d4d4d4;
+}
+
+
