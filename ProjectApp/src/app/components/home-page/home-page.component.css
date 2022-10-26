@@ -1,0 +1,49 @@
+
+/* Logo */
+.big-logo {
+	font-size: 6em;
+}
+
+.sub-logo {
+	font-size: 3em;
+}
+
+/* Body - General */
+
+.title {
+	padding-left: 2%;
+	font-size: 3em;
+	padding-top: 3%;
+}
+
+.desc {
+	padding-left: 4%;
+	padding-right: 10%;
+	font-size: 1.6em;
+}
+
+/* Documentation */
+
+.doc-links {
+	padding-top: 2%;
+}
+
+.btn-lg {
+	font-size: 2.5em;
+}
+
+/* Our Team */
+
+.team-table {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.team-name {
+	font-size: 2em;
+}
+
+.team-role {
+	font-size: 1.5em;
+	font-style: italic;
+}
