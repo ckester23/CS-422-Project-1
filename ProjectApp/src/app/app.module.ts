@@ -14,9 +14,6 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { DatabasesComponent } from './components/databases/databases.component';
 import { ScoresService } from './services/scores.service';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +31,6 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     ReactiveFormsModule,
     HttpClientModule,
 
-    // fake server
-    // remove before ship
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
   ],
   providers: [ScoresService],
   bootstrap: [AppComponent]
