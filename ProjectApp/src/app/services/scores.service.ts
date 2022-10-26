@@ -35,13 +35,18 @@ export class ScoresService {
     // takes in a new user, returns the new dropped user (?)
     let droppedUser = this.setPlace(_user);
     this.addDroppedUser(droppedUser);
-    this.userData.next(_user);
+
+    if (_user.score != 0) {
+      this.userData.next(_user);
+    }
   }
 
   private addDroppedUser(_dropped: User) {
 
     if (_dropped != this.dummyUser) {
-      this.allUsers.push(_dropped);
+      if (_dropped.score != 0) {
+        this.allUsers.push(_dropped);
+      }
     }
   }
 
@@ -106,7 +111,9 @@ export class ScoresService {
 
   private checkPlace(_score: number) : number{ 
     // return place that the score should have, if at all
-
+    if (_score == 0) {
+      return 0;
+    }
     // check if even makes scoreboard
     if (_score >= this.fifthPlaceUser.score) {
       switch(true) {
