@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Frame } from 'src/app/frame';
+import { Frame } from 'src/app/frames/frame';
 import { FrameService } from 'src/app/services/frame.service';
 
 @Component({
