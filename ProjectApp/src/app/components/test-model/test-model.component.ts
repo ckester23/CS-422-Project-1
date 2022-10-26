@@ -52,15 +52,22 @@ export class TestModelComponent implements OnInit {
       if (this.testForm.controls['gitURL'].value) {
         this.currentUser.gitURL = this.testForm.controls['gitURL'].value;
       }
-      // check files
-      if (this.databaseFile) {
-        console.log("database file is real!");
-        this.sendDatabase(this.databaseFile);
-      }
+      // check files, need to ave bot
       if (this.modelFile) {
         console.log("model file is real!");
-        this.currentUser.score = this.getScore();
+        if (this.databaseFile) {
+          console.log("database file is real!");
+          this.sendDatabase(this.databaseFile);
+          this.currentUser.score = this.getScore();
+        }
+
       }
+      else {
+        if (this.databaseFile) {
+          console.log("database file is real!");
+          this.sendDatabase(this.databaseFile);
+        }
+      } 
     }
   
     this.setOutputStrings(this.currentUser);
