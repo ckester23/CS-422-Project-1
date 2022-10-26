@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Frame } from 'src/app/frame';
-import { FrameService } from 'src/app/services/frame.service';
+import { Frame } from 'src/app/frames/frame';
 
 @Component({
   selector: 'app-home-page',
@@ -14,15 +13,7 @@ export class HomePageComponent implements OnInit {
   frames: Frame[] = [];
   selectedFrame?: Frame;
 
-  getFrames(): void {
-    this.frameService.getFrames().subscribe(frames => this.frames = frames);
-  }
-
-  onSelect(frame: Frame): void {
-    this.selectedFrame = frame;
-  }
-
-  constructor(private frameService: FrameService) {}
+  constructor() {}
 
   ngOnInit(): void {
   }
