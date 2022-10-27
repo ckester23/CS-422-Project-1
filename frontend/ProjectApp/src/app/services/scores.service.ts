@@ -11,7 +11,7 @@ export class ScoresService {
   private dummyUser: User = {
     name: "Dummy",
     databaseName: "Database",
-    gitURL: "GitURL",
+    gitURL: "https://www.google.com/",
     score: 0
   };
 
@@ -29,7 +29,7 @@ export class ScoresService {
   // temporary
   public allUsers: Array<User> = [];
 
-  constructor() {}
+  constructor() { }
 
   public sendUserObject(_user: User) {
     // takes in a new user, returns the new dropped user (?)
@@ -56,6 +56,9 @@ export class ScoresService {
     // call setPlace on the const to set up heirarchy
 
     // do this.allUsers = the const(user list from backend)
+
+    // call sendUser or something to tell high scores to update
+    // maybe call highscores.switchLeaderBoard??
   }
 
   private setPlace(_user: User) : User {
