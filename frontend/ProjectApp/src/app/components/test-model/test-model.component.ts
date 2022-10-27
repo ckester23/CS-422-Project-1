@@ -19,7 +19,8 @@ export class TestModelComponent implements OnInit {
 
   testForm = this.formBuilder.group( {
     name:'',
-    gitURL: ''
+    gitURL: '',
+    databaseName: ''
   });
 
   private modelFile: File | null = null;
@@ -44,36 +45,39 @@ export class TestModelComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    // save user input data
-    
-    //might make a formal global object for users
-    if (this.testForm.controls['name'].value) {
+    // save and call-to-send user input data
+   
+    if (this.testForm.controls['name'].value && this.testForm.controls['name'].value != '') {
+      console.log(this.testForm.controls['name'].value);
       this.currentUser.name = this.testForm.controls['name'].value;
       if (this.testForm.controls['gitURL'].value) {
         this.currentUser.gitURL = this.testForm.controls['gitURL'].value;
       }
-      // check files, need to ave bot
-      if (this.modelFile) {
-        console.log("model file is real!");
-        if (this.databaseFile) {
-          console.log("database file is real!");
-          this.sendDatabase(this.databaseFile);
-          this.currentUser.score = this.getScore();
-        }
+      // user must provide a database name
+      if (this.testForm.controls['databaseName'].value) {
+        this.currentUser.databaseName = this.testForm.controls['databaseName'].value;
+      
+        // check files, need to ave bot
+        if (this.modelFile) {
+          if (this.databaseFile) {
+            this.sendDatabase(this.databaseFile);
+            this.currentUser.score = this.getScore(this.modelFile);
+          }
 
-      }
-      else {
-        if (this.databaseFile) {
-          console.log("database file is real!");
-          this.sendDatabase(this.databaseFile);
         }
-      } 
+        else {
+          if (this.databaseFile) {
+            this.sendDatabase(this.databaseFile);
+          }
+        }
+      }
     }
   
     this.setOutputStrings(this.currentUser);
     this.scoreService.sendUserObject(this.currentUser);
 
     this.testForm.reset();
+    this.resetCurrentUser();
   }
 
   public onClear(): void {
@@ -129,9 +133,9 @@ export class TestModelComponent implements OnInit {
     this.scoreString = scoreStr;
   }
 
-  private getScore(): number {
-    // send User data to back end, and receive a score
-
+  private getScore(_file: File): number {
+    // send model to back, get a score
+    console.log("Sending model, getting score");
     //currently chooses a random score
     let score = Math.floor(Math.random() * 100);
     return score;
@@ -142,6 +146,7 @@ export class TestModelComponent implements OnInit {
     // database should be added to available databases to compare
     // modelFile to
 
+    // also use currentUser.databaseName too
     console.log("sending database");
   }
 
