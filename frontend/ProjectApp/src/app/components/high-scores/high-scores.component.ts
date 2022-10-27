@@ -41,6 +41,7 @@ export class HighScoresComponent implements OnInit {
     "databaseName",
     "ILoveTS",
     "TSRules"
+
   ]
 
   constructor(private scoreService: ScoresService) { }

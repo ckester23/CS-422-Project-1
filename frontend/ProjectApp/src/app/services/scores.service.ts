@@ -42,6 +42,7 @@ export class ScoresService {
     this.dummyUser
   ];
 
+
   constructor() { }
 
   public sendUserObject(_user: User) {
