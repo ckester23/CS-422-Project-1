@@ -53,24 +53,27 @@
             <a href={{this.fifthPlaceUser.gitURL}}> {{this.fifthPlaceUser.gitURL}} </a>
         </p>
     </div>
-
-</div>
-
-<h3 class="centeredText"> Select the Dabase To View here</h3>
-<div *ngFor="let database of databaseNames" class="highScoreList">
-    <h4 (click)="selectDatabase(database)">
-        <a>{{database}}</a>
-    </h4>
 </div>
 
 <h3 class="centeredText sub-logo">Check out some of the other submissions below!</h3>
-
-<div class="scoreList" class="scrollable">
-
+<div class="scoreList scrollable centeredText">
     <ul>
         <div *ngFor="let user of allUsers">
-            <p>{{user.name}}  {{user.score}}  {{user.gitURL}}</p>
+            <p>{{user.name}}  {{user.score}}  
+                <a href={{user.gitURL}}> {{user.gitURL}}</a>
+            </p>
             
+        </div>
+    </ul>
+</div>
+
+<h3 class="centeredText"> Select the Dabase To View here</h3>
+<div class="scrollable highScoreList centeredText">
+    <ul>
+        <div *ngFor="let database of databaseNames">
+            <h4 (click)="selectDatabase(database)">
+                <a>{{database}}</a>
+            </h4>
         </div>
     </ul>
 </div>

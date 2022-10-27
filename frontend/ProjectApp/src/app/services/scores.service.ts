@@ -27,7 +27,20 @@ export class ScoresService {
   public fifthPlaceUser: User = this.dummyUser;
 
   // temporary
-  public allUsers: Array<User> = [];
+  public allUsers: Array<User> = [
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser,
+    this.dummyUser
+  ];
 
   constructor() { }
 

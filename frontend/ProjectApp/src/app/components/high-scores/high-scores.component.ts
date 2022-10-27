@@ -25,7 +25,22 @@ export class HighScoresComponent implements OnInit {
     "databaseName",
     "ILoveTS",
     "TSRules",
-    "Dux_DZineIsAwesome"
+    "Dux_DZineIsAwesome",
+    "randomName",
+    "dummyName",
+    "databaseName",
+    "ILoveTS",
+    "TSRules",
+    "randomName",
+    "dummyName",
+    "databaseName",
+    "ILoveTS",
+    "TSRules",
+    "randomName",
+    "dummyName",
+    "databaseName",
+    "ILoveTS",
+    "TSRules"
   ]
 
   constructor(private scoreService: ScoresService) { }
@@ -43,7 +58,7 @@ export class HighScoresComponent implements OnInit {
     });
   };
 
-  public getDatabseNames() {
+  public getDatabaseNames() {
     // retrieve databse names to list for the database selection area
 
     // currently, I'll just make a random list
