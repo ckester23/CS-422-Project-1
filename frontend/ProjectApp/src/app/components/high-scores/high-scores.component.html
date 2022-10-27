@@ -55,16 +55,9 @@
     </div>
 </div>
 
-<h3 class="centeredText"> Select the Dabase To View here</h3>
-<div *ngFor="let database of databaseNames" class="highScoreList">
-    <h4 (click)="selectDatabase(database)">
-        <a>{{database}}</a>
-    </h4>
-</div>
-
 <h3 class="centeredText sub-logo">Check out some of the other submissions below!</h3>
 
-<div class="scoreList" class="scrollable">
+<div class="scoreList scrollable centeredText">
     <ul>
         <div *ngFor="let user of allUsers">
             <p>{{user.name}}  {{user.score}}  
