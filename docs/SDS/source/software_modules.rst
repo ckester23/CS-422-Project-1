@@ -20,13 +20,13 @@ This module interacts with the typescript code that makes up the framework that 
 To further show how this module interacts with other modules the following dynamic model further specifies the module's interactions with the other components of the system.
 
 .. figure:: images/Web_UI_dynamic.png
-   :width: 80%
+   :width: 50%
 
    Dynamic Model of Web Interface
 
-The rationale behind this design for the web interface is primarily familiarity. The separate page with a navigation bar model for web pages is familiar to most internet users, making navigation and searching intuitive.
+The rationale behind the design decisions for the web interface is primarily familiarity. Separate pages with a navigation bar to link them is familiar to most Internet users, making navigation and comprehension intuitive. Our reasoning with the technologies we choose was that our team had familiarity with Angular and Angular provided us with all the functionality we needed.
 
-The reason we favored this design over others is that it provided the most straight forward user interface. More complicated and detailed user interfaces could definitely being created, but with our design users are only provided with what they need. This simplifies user documentation, increases loading speeds, and optimizes efficiency for users.
+The reason we favored this design over others is that it provided the most straight forward user interface. More complicated and detailed user interfaces could be created, but with our design users are only provided with what they need. This simplifies user documentation, increases loading speeds, and optimizes efficiency for users.
 
 
 This module can be divided into five sub-modules which are listed below.
@@ -35,7 +35,7 @@ This module can be divided into five sub-modules which are listed below.
 Home Page
 ############
 
-The purpose of the home page is to welcome the user to the application and orient them to the website interface. Specifically it allows them to easily navigate to other pages and learn more about the project if they so choose. Furthermore, the home page links directly to user documentation, which is a through guide if they have any trouble using the app.
+The purpose of the home page is to welcome the user to the application and orient them to the website interface. Specifically it allows them to easily navigate to other pages and learn more about the project if they so choose. Furthermore, the home page links directly to user documentation, which is a thorough guide if they have any trouble using the app.
 
 
 Datasets Page
@@ -50,22 +50,37 @@ High Score Page
 This part of the web interface allows users to see how their predictive methods compare to peers who also use the repository. They are ranked in terms of a "score" which is calculated using an equation specified below.
 
 
-Add Data Page
-#################
+Enter Predictions/Data Page
+#############################
 
-This sub-module is where users can upload their own time series data for review and possible inclusion in the repository. 
-
-
-Enter Predictions Page
-########################
-
-Here users can enter predicted values that they have generated for time series data sets taken from the repository. 
+Here users can enter predicted values that they have generated for time series data sets taken from the repository and receive feedback from the application. They can also upload new data sets that they wish to be included in the repository in the future.
 
 
 Data Processing
 -----------------------
 
-This module acts a mediator between other modules by formatting their data outputs so that they can be interpreted by other modules. 
+This module acts a mediator between modules by formatting their data outputs so that they can be interpreted as inputs for other parts of the system. The structure of this component can be visualized statically as in the diagram shown below.
+
+.. figure:: images/Data_Processing_static.png
+   :name: data-processing-static
+   :width: 50%
+
+   Static Model of Data Processing Module
+
+
+However the static model above doesn't do the best job at showing the purpose of this module which is as a middle ground for transporting data throughout the system. The data processing section of the application receives inputs from both the database interpretor module and the web framework module. The former is in the form of database data which it then processes to be in a format accessible to users of the web interface; while the latter does the opposite--it takes database formatted data and makes it readable by the MongoDB database. From this it follows that the data processing module outputs to the same modules it receives inputs from. The dynamic model below shows this situation in a more visual fashion:
+
+
+.. figure:: images/Data_Processing_dynamic.png
+   :name: data-processing-dynamic
+   :width: 50%
+
+   Dynamic Model of Data Processing Module
+
+
+The design decision to include this module was a clear one because MongoDB's BSON data type is not very accessible to the target users of our application and therefore we need to do some interpretation to accept other formats. The splitting of this module into two separate components made development much more straightforward as we could focus on a single data translation paradigm (i.e., .csv to BSON or BSON to .csv).
+
+The other design decisions that were considered were primarily in the realm of what data types should be accepted and what should be the "mediator" data type. For the data types accepted, we considered JSON and .txt, but ultimately settled on .csv and .dat as these were generally what other TS repositories had their data available in. The "middle-ground" datatype is a pandas dataframe object which we choose due to its plentiful options and its through documentation. It also fit well with both the Python modules in the backend and the Python interface provided by MongoDB.
 
 
 The data processing module of our application can be divided into two sub-modules based on the direction in which data is flowing.
@@ -73,7 +88,7 @@ The data processing module of our application can be divided into two sub-module
 Data preprocessor
 ###################
 
-This part of back-end system processes time series data inputted as a csv file and formats it as a pandas object which is then passed on to the database interpretor module to be formatted to comply with MongoDB's interface formatting.
+This part of back-end system processes time series data inputted as a .csv file and formats it as a pandas object which is then passed on to the database interpretor module to be formatted to comply with MongoDB's interface formatting.
 
 
 
@@ -81,6 +96,7 @@ Data Postprocessor
 #####################
 
 This sub-module formats data outputted by MongoDB into .csv files which can be passed on to the front-end and made available to users.
+
 
 
 Score Calculator
@@ -96,7 +112,7 @@ The score calculator is a module that is essentially defined by its interaction 
 
 .. figure:: images/Score_Calculator_static.png
    :name: score-calculator-static
-   :width: 80%
+   :width: 50%
 
    Static Model of Score Calculator Module
 
@@ -107,10 +123,14 @@ The dynamic model of the score calculator (shown below) visualizes this module's
 
 .. figure:: images/Score_Calculator_dynamic.png
    :name: score-calculator-dynamic
-   :width: 80%
+   :width: 50%
 
    Dynamic Model of Score Calculator Module
 
+
+The design decisions of this module were made primarily with statistics in mind. The language and libraries used are popular in data science (Python, pandas, numpy) and the equations used in calculation are common error measures across many fields. 
+
+Other design decisions were considered; however, we favored this approach because it aligns with the needs of our users. ML engineers use evaluation schemes that are heavily based on classical statistics and so we wanted to comply we industry and research standards when building this module.
 
 
 TS Database
@@ -124,18 +144,24 @@ We can see a visualization of this compartmentalization of the TS database with 
 
 .. figure:: images/TS_Database_static.png
    :name: ts-database-static
-   :width: 60%
+   :width: 50%
 
    Static Model of TS Database Module
+
 
 The interactions that this module has with the rest of the system is very straightforward due to the existence of the "database interpretor module" whose sole purpose is to interface with the database using procedures defined by MongoDB. The following dynamic model for the TS database module goes into further detail about the interface between the interpretor and database.
 
 
 .. figure:: images/TS_Database_dynamic.png
    :name: ts-database-dynamic
-   :width: 60%
+   :width: 50%
 
    Dynamic Model of TS Database Module
+
+
+This module was implemented using MongoDB, python, and python libraries (primarily pandas). Many of the design decisions around the TS Database were made with these technologies in mind--playing to their strengths and accommodating to the way they interact with other technologies. Furthermore, our design decisions allowed for greater usability for us as developers. This was key as we are a team of somewhat inexperienced programmers.
+
+Many other designs were considered, but the primary alternative we looked at was a relational database such as SQLite. Ultimately, we decided that a non-relational database would be preferable because of its more straightforward interface with Python and its more intuitive data formatting protocols.
 
 
 Database Interpretor
@@ -146,12 +172,26 @@ The purpose of this module is to query the database when data is needed by users
 Like the score calculator, the database interpretor is essentially defined by its interface with other modules. However, a static model of the module can be used to give a better idea of how the interpretor handles its interactions. The diagram below shows such a model:
 
 
-[Database Interpretor static model]
+.. figure:: images/Database_Interpretor_static.png
+   :name: database-interpretor-static
+   :width: 50%
 
-The interface that this module has with other modules is defined by the interactions and transactions the TS database itself requires in order to be a functioning part of the application. Because of this, we can think of the MongoDB database as the primary module it interacts with in the form of reads and writes compatible with MongoDB's defined interface in Python. 
+   Static Model of Database Interpretor Module
+
+The interface that this module has with other modules is defined by the interactions the TS database requires in order to be a functioning part of the application. Because of this, we can think of the MongoDB database as the primary module it interacts with in the form of reads and writes compatible with MongoDB's Python interface. 
 
 On the other side of the application, the interpretor receives incoming data transmissions strictly from the data preprocessor (this is because data must be formatted as a pandas object before being moved into the TS database). The database interpretor also receives control message inputs from the web framework when a validation set is needed in order to calculate a user's score. 
 
 In terms of outputs, the database interpretor transfers data to the data postprocessor when it needs to be transferred directly to users and to the score calculator when it will be used to create a score value. The interpretor may also send control messages to other modules in order to notify them of receiving or not receiving certain requests.
 
-[Database Interpretor dynamic model]
+
+.. figure:: images/Database_Interpretor_dynamic.png
+   :name: database-interpretor-dynamic
+   :width: 50%
+
+   Dynamic Model of Database Interpretor Module
+
+
+The design of this module was crated with ease of interface in mind. Because the database interpretor acts primarily as a conduit to the TS database storage, we wanted to make this module efficiently interact with MongoDB as well as the modules on the other side of the application. 
+
+When designing this module, we considered using a more command line oriented approach that is supported by MongoDB. However, the python interface libraries provided by Mongo were more than enough to create effective passages of information and control messages. Furthermore, by staying in the domain of Python code it was easier to integrate this module with the rest of the backend which was also primarily written in Python.
