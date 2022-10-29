@@ -5,3 +5,9 @@
 .sub-logo {
 	font-size: 3.5em;
 }
+
+.scrollable {
+	overflow-y: auto;
+}
+
+

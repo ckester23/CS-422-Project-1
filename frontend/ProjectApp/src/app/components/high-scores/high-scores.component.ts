@@ -9,6 +9,8 @@ import { User } from 'src/app/user';
 })
 export class HighScoresComponent implements OnInit {
 
+  public currentDatabaseBoard: String = "DatabaseName";
+
   public firstPlaceUser: User = this.scoreService.firstPlaceUser;
   public secondPlaceUser: User = this.scoreService.secondPlaceUser;
   public thirdPlaceUser: User = this.scoreService.thirdPlaceUser;
@@ -16,6 +18,31 @@ export class HighScoresComponent implements OnInit {
   public fifthPlaceUser: User = this.scoreService.fifthPlaceUser;
 
   public allUsers: Array<User> = this.scoreService.allUsers;
+
+  public databaseNames: Array<String> = [
+    "randomName",
+    "dummyName",
+    "databaseName",
+    "ILoveTS",
+    "TSRules",
+    "Dux_DZineIsAwesome",
+    "randomName",
+    "dummyName",
+    "databaseName",
+    "ILoveTS",
+    "TSRules",
+    "randomName",
+    "dummyName",
+    "databaseName",
+    "ILoveTS",
+    "TSRules",
+    "randomName",
+    "dummyName",
+    "databaseName",
+    "ILoveTS",
+    "TSRules"
+
+  ]
 
   constructor(private scoreService: ScoresService) { }
 
@@ -31,4 +58,23 @@ export class HighScoresComponent implements OnInit {
       
     });
   };
-}
+
+  public getDatabaseNames() {
+    // retrieve databse names to list for the database selection area
+
+    // currently, I'll just make a random list
+
+  }
+
+  public selectDatabase(_databaseName: String) {
+    console.log("Selected new database");
+    this.currentDatabaseBoard = "NewDatabase";
+
+    this.switchScoreBoard();
+  }
+  private switchScoreBoard() {
+    // switch the leaderboard AND allusers
+
+  }
+
+ }

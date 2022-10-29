@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'System Requirements Specification'
+project = 'DATSR System Requirements Specification'
 copyright = '2022, Dux D-zine'
 author = 'Dux D-zine'
 release = '1.1'
