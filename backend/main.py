@@ -6,11 +6,6 @@ import pandas as pd
 from preproc import *
 import math
 
-# @app.route('/create', methods=['POST'])
-# @app.route('/read', methods=['GET'])
-# @app.route('/update', methods=['PUT'])
-# @app.route('/delete', methods=['DELETE'])
-
 def db_requestTraining(col, train_Set_path: str = None):
 	df1 = pd.DataFrame(col.find_one())
 	rows = df1.T.shape[0]
