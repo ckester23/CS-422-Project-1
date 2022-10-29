@@ -21,9 +21,25 @@ export class FrameService {
 
   constructor(private http: HttpClient) { }
 
-  // Will return all available dataframes
+  // return all available time series
   getFrames(): Observable<Frame[]> {
-    return this.http.get<Frame[]>(this.apiURL + '/frames')
+    return this.http.get<Frame[]>(this.apiURL + '/frames');
   }
 
+  // return time series of specific name
+  // note in docs about how no fuzzy search
+  getFrame(setName: string): Observable<any> {
+    const frameURL = '${this.apiURL}/user/${setName}';
+    return this.http.get<Frame>(frameURL);
+  }
+
+  // post time series to database
+  addFrame(frame: Frame) {
+    return this.http.post(this.apiURL + '/add', frame, httpOptions);
+  }
+
+  // post forceast time series to database
+  getScore(frame: Frame) {
+    return this.http.post(this.apiURL + '/score', frame, httpOptions);
+  }
 }
