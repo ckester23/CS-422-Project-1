@@ -12,7 +12,6 @@ Time Series Repo System Design Specification
    software_architecture
    software_modules
    dynamic_models
-   references
    acknowledgments
 
 
