@@ -68,7 +68,7 @@ export class HighScoresComponent implements OnInit {
 
   public selectDatabase(_databaseName: String) {
     console.log("Selected new database");
-    this.currentDatabaseBoard = "NewDatabase";
+    this.currentDatabaseBoard = _databaseName;
 
     this.switchScoreBoard();
   }

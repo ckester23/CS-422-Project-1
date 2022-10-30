@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { DatabasesComponent } from './components/databases/databases.component';
 import { ScoresService } from './services/scores.service';
+import { UserDocsaComponent } from './components/user-docsa/user-docsa.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ScoresService } from './services/scores.service';
     HeaderComponent,
     MessagesComponent,
     DatabasesComponent,
+    UserDocsaComponent,
   ],
   imports: [
     BrowserModule,
