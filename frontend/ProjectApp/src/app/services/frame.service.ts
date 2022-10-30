@@ -28,8 +28,8 @@ export class FrameService {
 
   // return time series of specific name
   // note in docs about how no fuzzy search
-  getFrame(setName: string): Observable<any> {
-    const frameURL = '${this.apiURL}/user/${setName}';
+  getFrame(_id: string): Observable<any> {
+    const frameURL = '${this.apiURL}/user/${_id}';
     return this.http.get<Frame>(frameURL);
   }
 

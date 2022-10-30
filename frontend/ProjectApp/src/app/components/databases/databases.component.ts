@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { Frame } from 'src/app/frames/frame';
+import { mockFrames } from 'src/app/frames/mock-frames';
 import { FrameService } from 'src/app/services/frame.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class DatabasesComponent implements OnInit {
   title: string = 'DATSR Time Series Database'
   about: string = 'Check out all of the Amazing time series below!'
 
-  tsFrames: Frame[] = []
+  tsFrames: Frame[] = mockFrames; 
 
   constructor(private route: ActivatedRoute, private frameService: FrameService) {}
 
