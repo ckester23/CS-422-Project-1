@@ -17,12 +17,15 @@ DUX D-Zine (Sam Heilenbach, Cheyanne Kester, Ian McConachie, Scott Wallace, Aust
 
 ## Software Dependencies
 
-As this application is web hosted, software dependencies should not be an issue in using DATSR. However, for development purposes the versions of software used are listed below:
+As this application is web hosted, software dependencies should not be an issue in using DATSR. However, for development purposes the versions of software used while creating this project are listed below:
 
-Angular:
-Python:	3.8.2
-Flask:
-Sphinx:	5.2.3
+- Angular:
+- Python:   3.9.0
+	- pymongo:   4.2.0
+	- numpy:   1.23.1
+	- bson:   0.5.10
+- Flask:   2.2.2
+- Sphinx:   5.2.3
 
 
 ## Contents
