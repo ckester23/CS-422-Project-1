@@ -10,9 +10,6 @@ export class HomePageComponent implements OnInit {
   title: string = 'Dux D-Zine Time Series Database'
   about: string = 'check out all the cool time series below!'
 
-  frames: Frame[] = [];
-  selectedFrame?: Frame;
-
   constructor() {}
 
   ngOnInit(): void {

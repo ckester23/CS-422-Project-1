@@ -6,7 +6,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { TestModelComponent } from './components/test-model/test-model.component';
 import { UserDocsaComponent } from './components/user-docsa/user-docsa.component';
 
-//add paths to flask endpoints
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
