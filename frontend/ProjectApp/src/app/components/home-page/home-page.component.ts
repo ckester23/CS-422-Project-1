@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Frame } from 'src/app/frames/frame';
 
 // Contributors: Cheyanne Kester, Scott Wallace, Ian McConachie
 @Component({
