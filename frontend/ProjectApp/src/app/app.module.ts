@@ -12,7 +12,6 @@ import { HighScoresComponent } from './components/high-scores/high-scores.compon
 import { TestModelComponent } from './components/test-model/test-model.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MessagesComponent } from './components/messages/messages.component';
 import { DatabasesComponent } from './components/databases/databases.component';
 import { ScoresService } from './services/scores.service';
 import { UserDocsaComponent } from './components/user-docsa/user-docsa.component';
@@ -25,7 +24,6 @@ import { UserDocsaComponent } from './components/user-docsa/user-docsa.component
     TestModelComponent,
     NavBarComponent,
     HeaderComponent,
-    MessagesComponent,
     DatabasesComponent,
     UserDocsaComponent,
   ],
