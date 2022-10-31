@@ -9,7 +9,7 @@
             collection: {{col[0]}}
             <div class="borderedBox" *ngFor="let frame of col[1]">
                 set name: {{frame}}
-                <button type="button">
+                <button type="button" (click)="onClick(col[0], frame)">
                     Download Here!
                 </button>
             </div>
