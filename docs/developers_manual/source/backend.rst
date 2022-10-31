@@ -13,7 +13,7 @@ Getting Started
 Necessary Software
 ###################
 
-To run the backend python modules, and be fully capable of modifying any/all components, on your local machine you will need the following python packages installed: pymongo (vrs. 4.2.0), Flask (vrs. 2.2.2), python (vrs. 3.9.0), numpy (vrs. 1.23.1), and bson (vrs. 0.5.10). 
+To run the backend python modules, and be fully capable of modifying any/all components, on your local machine you will need the following python packages installed: pymongo (version 4.2.0), Flask (version 2.2.2), python (version 3.9.0), numpy (version 1.23.1), and bson (version 0.5.10). For more information on downloading Python, you can visit their `download page <https://www.python.org/downloads/>`_ ; you should be able to download most python libaries using pip in the command line, as described in this `link <https://pip.pypa.io/en/stable/cli/pip_install/>`_ . 
 
 
 Proficiencies

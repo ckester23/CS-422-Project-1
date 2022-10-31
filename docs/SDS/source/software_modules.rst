@@ -50,7 +50,7 @@ The purpose of the home page is to welcome the user to the application and orien
 Datasets Page
 ##############
 
-This page displays a list of time series data sets which are available to download in the form of .csv or .dat files. Information about each data set is displayed on this page including the number of variables, the number of data-points, and the domain that the data comes from. 
+This page displays a list of time series data sets which are available to download in the form of .csv files. Information about each data set is displayed on this page including the number of variables, the number of data-points, and the domain that the data comes from. 
 
 
 High Score Page
@@ -95,9 +95,9 @@ However the static model above doesn't do the best job at showing the purpose of
 
    \clearpage
 
-The design decision to include this module was a clear one because MongoDB's BSON data type is not very accessible to the target users of our application, so accepting other data types was essential. The splitting of this module into two separate components made development much more straightforward as we could focus on a single data translation paradigm (i.e., .csv/.dat to BSON or BSON to .csv/.dat).
+The design decision to include this module was a clear one because MongoDB's BSON data type is not very accessible to the target users of our application, so accepting other data types was essential. The splitting of this module into two separate components made development much more straightforward as we could focus on a single data translation paradigm (i.e., .csv to BSON or BSON to .csv).
 
-Other design options that were considered were primarily in the realm of what data types should be accepted and what the "mediator" data type should be. For the data types accepted, we considered JSON and .txt, but ultimately settled on .csv and .dat. These are generally what other TS repositories had their data available in and both are common in many fields of AI/CS research. The "middle-ground" datatype is a pandas dataframe object which we choose due to its plentiful options and thorough documentation. It worked very well with all the Python modules in the backend.
+Other design options that were considered were primarily in the realm of what data types should be accepted and what the "mediator" data type should be. For the data types accepted, we considered JSON, .dat, and .txt, but ultimately settled on .csv. These are generally what other TS repositories had their data available in and both are common in many fields of AI/CS research. The "middle-ground" datatype is a pandas dataframe object which we choose due to its plentiful options and thorough documentation. It worked very well with all the Python modules in the backend.
 
 
 The data processing module of our application can be divided into two sub-modules based on the direction in which data is flowing.
@@ -105,14 +105,14 @@ The data processing module of our application can be divided into two sub-module
 Data preprocessor
 ###################
 
-This part of back-end system processes time series data inputted as a .csv/.dat file and formats it as a pandas object. The pandas dataframe object is then passed on to the database interpretor so that it can be modified to comply with Mongo's python interface.
+This part of back-end system processes time series data inputted as a .csv file and formats it as a pandas object. The pandas dataframe object is then passed on to the database interpretor so that it can be modified to comply with Mongo's python interface.
 
 
 
 Data Postprocessor
 #####################
 
-This sub-module formats data outputted by MongoDB into .csv/.dat files which are given to the front-end modules and made available to the users.
+This sub-module formats data outputted by MongoDB into .csv files which are given to the front-end modules and made available to the users.
 
 
 .. _score-calc:
