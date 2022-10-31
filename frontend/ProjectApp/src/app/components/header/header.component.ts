@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+// Contributors: Cheyanne Kester
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

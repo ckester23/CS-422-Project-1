@@ -1,10 +1,11 @@
 <div class="centeredText">
     <h3 class="big-logo"> Upload Your Files </h3>
-    <h4 class="sub-logo">Here you can test your model, upload a database for others to test against, or both!</h4>
+    <h4 class="sub-logo">Here you can test your model, upload a dataset for others to test against, or both!</h4>
 </div>
 
 <div class="centeredForm" >
-    <form [formGroup]="testForm" (ngSubmit)="onSubmit()" (reset)="onClear()">
+    <form [formGroup]="modelForm" (ngSubmit)="onModelSubmit()" (reset)="onModelClear()">
+        <h4 class="team-role centeredText">Test Your Model</h4>
         <div>
             <label class="bufferedLabels" for="name">
                 Name:
@@ -18,23 +19,50 @@
             <input id="gitURL" type="text" formControlName="gitURL">
         </div>
         <div>
+            <label class="bufferedLabels" for="collectionName">
+                Collection:
+            </label>
+            <input id="collectionName" type="text" formControlName="collectionName">
+        </div>
+        <div>
             <label class="bufferedLabels" for="databaseName">
-                Dataset Name:
+                Dataset:
             </label>
             <input id="databaseName" type="text" formControlName="databaseName">
         </div>
         <div>
             <label class="bufferedLabels" for="modelFile">
-                Your Model:
+                Model File (.csv):
             </label>
             <input  class="bufferChooseFile" id="modelFile" type="file" (change)="modelChange($event)" accept=".csv">
         </div>
 
+        <button class="button bufferedButtons" type="submit">Submit</button>
+        <button class="button" type="reset">Clear</button>
+    </form>
+
+</div>
+
+<div class="centeredForm" >
+    <form [formGroup]="dataForm" (ngSubmit)="onDataSubmit()" (reset)="onDataClear()">
+        <h4 class="team-role centeredText">Upload a Dataset</h4>
+        <div>
+            <label class="bufferedLabels" for="databaseName">
+                Dataset:
+            </label>
+            <input id="databaseName" type="text" formControlName="databaseName">
+        </div>
         <div>
             <label class="bufferedLabels" for="databaseFile">
-                Your Dataset:
+                Dataset File (.csv):
             </label>
             <input class="bufferChooseFile" id="databaseFile" type="file" (change)="databaseChange($event)" accept=".csv">
+        </div>
+        <div>
+            <label class="bufferedLabels" >
+                Create New collecton?
+            </label>
+            <input  id="newCollection" type="checkbox" formControlName="newCollection" (change)="setBoolean()">
         </div>
         <button class="button bufferedButtons" type="submit">Submit</button>
         <button class="button" type="reset">Clear</button>
@@ -43,10 +71,17 @@
 </div>
 
 <div class="centeredText">
-    <p>Your Information:</p>
+    <p>Your Model Information:</p>
     <p>{{this.outputString}}</p>
-    <p> Your Score: {{this.scoreString}}</p>
+    <p> Score: {{this.scoreString}}</p>
 </div>
+
+<div class="centeredText">
+    <p>Your Dataset Information:</p>
+    <p></p>
+</div>
+
+
 
 
 

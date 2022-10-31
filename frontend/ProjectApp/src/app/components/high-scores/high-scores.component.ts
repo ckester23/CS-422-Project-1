@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ScoresService } from 'src/app/services/scores.service';
 import { User } from 'src/app/user';
-
+// Contributors: Cheyanne Kester
 @Component({
   selector: 'app-high-scores',
   templateUrl: './high-scores.component.html',
