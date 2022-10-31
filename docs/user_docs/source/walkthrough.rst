@@ -21,6 +21,11 @@ Step 2: Downloading a Dataset
 Go to the "Databases" page using the navigation bar at the top and browse through time series data sets available in the repository. When you have found one that piques your interest, click the download button to add the .csv file with the set's training data to your browser's downloads folder.
 
 
+.. note::
+
+	The remaining two steps of this walkthrough demonstrate **intended functionality** that we were unable to implement due to time constraints.
+
+
 Step 3: Entering Predictions
 -----------------------------
 
