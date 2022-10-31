@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Collection, Frame } from 'src/app/frames/frame';
 import { FrameService } from 'src/app/services/frame.service';
 
+// Contributors: Cheyanne Kester, Scott Wallace
 @Component({
   selector: 'app-databases',
   templateUrl: './databases.component.html',
@@ -14,7 +15,7 @@ export class DatabasesComponent implements OnInit {
   title: string = 'DATSR Time Series Database'
   about: string = 'Check out all of the Amazing time series below!'
 
-  db: Collection [] = []
+  db: any 
 
   constructor(private route: ActivatedRoute, private frameService: FrameService) {}
 
@@ -23,7 +24,7 @@ export class DatabasesComponent implements OnInit {
   }
 
   getFrames(): void {
-    // this.frameService.getFrames().subscribe(db => this.db = db)
+    this.frameService.getFrames().subscribe(db => this.db = db)
     this.frameService.getFrames().subscribe(db => console.log(db))
-  }
+  } 
 }
