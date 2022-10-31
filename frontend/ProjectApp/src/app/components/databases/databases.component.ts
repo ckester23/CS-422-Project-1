@@ -27,4 +27,8 @@ export class DatabasesComponent implements OnInit {
     this.frameService.getFrames().subscribe(db => this.db = db)
     this.frameService.getFrames().subscribe(db => console.log(db))
   } 
+
+  onClick(colName: string, fileName: string) {
+    this.frameService.getFrame(colName, fileName)
+  }
 }

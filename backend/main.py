@@ -8,6 +8,7 @@ import pandas as pd
 from preproc import *
 import math
 
+@app.route('/<col>/<file>')
 def db_requestTraining(col, file: str, train_Set_path: str = None):
 	"""
 	Description: this method retrieves the training set of a given dataset (housed in a given)
@@ -19,6 +20,7 @@ def db_requestTraining(col, file: str, train_Set_path: str = None):
 	df1 = pd.DataFrame(col.find_one(filter))
 	rows = df1.T.shape[0]
 	training_size = math.ceil(rows*.8)
+	train_Set_path = file
 	if(len(df1.T.columns) < 2):
 		#If the dataframe only has one column, manually set the index as monotonically increasing
 		#integers, and label that column 'timeStamp' and the column of data 'data'

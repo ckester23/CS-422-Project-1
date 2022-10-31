@@ -28,9 +28,9 @@ export class FrameService {
 
   // return time series of specific name
   // note in docs about how no fuzzy search
-  getFrame(setName: string): Observable<any> {
-    const frameURL = '${this.apiURL}/user/${setName}';
-    return this.http.get<Frame>(frameURL);
+  getFrame(colName: string, fileName: string): Observable<any> {
+    console.log(this.apiURL + '/' + colName + '/' + fileName);
+    return this.http.get<any>(this.apiURL + '/' + colName + '/' + fileName);
   }
 
   // post time series to database
