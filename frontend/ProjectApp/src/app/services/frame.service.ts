@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Frame } from '../frames/frame';
+import { Collection, Frame } from '../frames/frame';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,13 +17,13 @@ const httpOptions = {
 export class FrameService {
 
   // Rest API URL
-  private apiURL = 'dummy'; 
+  private apiURL = 'http://127.0.0.1:5000'; 
 
   constructor(private http: HttpClient) { }
 
   // return all available time series
-  getFrames(): Observable<Frame[]> {
-    return this.http.get<Frame[]>(this.apiURL + '/frames');
+  getFrames(): Observable<any> {
+    return this.http.get<Collection[]>(this.apiURL + '/dataSets');
   }
 
   // return time series of specific name
