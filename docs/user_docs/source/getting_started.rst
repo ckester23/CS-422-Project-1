@@ -1,6 +1,8 @@
-
 Getting Started
 ================
+
+
+**WARNING:** Due to time constraints the team was unable to implement certain features of this application. The functionality exists in both the front and back end, but interfacing and web hosting brought unexpected hiccups. See the walkthrough section (:ref:`walkthrough`) for more information on missing features. We apologize for this inconvenience. 
 
 Welcome to DATSR! This document is to help you get a little more acquainted with our website and guide you through the use of our revolutionary online time series repository.
 
@@ -33,6 +35,9 @@ In "Input Formatting" we describe how inputs into the DATSR system should be for
 -------------------
 
 Here you will find a more in depth guide to how the scoring works on DATSR. You will find the statistical methods that were used for the ratings generated as well as justification and a little bit of background for the mathematics behind our calculation.
+
+
+
 
 
 
