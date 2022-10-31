@@ -5,10 +5,14 @@
 
 <div class="centeredText">
     <ul>
-        <div class="borderedBox" *ngFor="let col of db">
-            <button type="button">
-                Download Here!
-            </button>
+        <div class ="borderedBox" *ngFor="let col of db">
+            collection: {{col}}
+            <div class="borderedBox" *ngFor="let frame of col">
+                set name: {{frame}}
+                <button type="button">
+                    Download Here!
+                </button>
+            </div>
         </div>
     </ul>
 </div>

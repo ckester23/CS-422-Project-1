@@ -14,7 +14,7 @@ export class DatabasesComponent implements OnInit {
   title: string = 'DATSR Time Series Database'
   about: string = 'Check out all of the Amazing time series below!'
 
-  db: Collection [] = []
+  db?: string
 
   constructor(private route: ActivatedRoute, private frameService: FrameService) {}
 
@@ -25,5 +25,5 @@ export class DatabasesComponent implements OnInit {
   getFrames(): void {
     // this.frameService.getFrames().subscribe(db => this.db = db)
     this.frameService.getFrames().subscribe(db => console.log(db))
-  }
+  } 
 }
