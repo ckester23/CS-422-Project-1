@@ -23,7 +23,7 @@ export class FrameService {
 
   // return all available time series
   getFrames(): Observable<any> {
-    return this.http.get<Collection[]>(this.apiURL + '/dataSets');
+    return this.http.get<any[]>(this.apiURL + '/dataSets');
   }
 
   // return time series of specific name

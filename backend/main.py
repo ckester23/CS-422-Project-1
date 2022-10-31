@@ -2,7 +2,7 @@
 Description: this module contains all of the functions for interacting with the mongoDB database via pymongo
 Contributors/Authors: Scott, Sam, Austin
 """
-from app import app, mongo
+from flaskApp import app, mongo
 from flask_cors import CORS
 import pandas as pd 
 from preproc import *
@@ -85,7 +85,7 @@ def insert_toCol(client, filename, docName: str, exists: bool = False, TS_colPtr
 			df = set_DatetoIndex_noTS_CSV(filename) #set indices (see pre_proc.py)
 			data_dict = df.to_dict('index')
 			name_dict.update(data_dict)
-			TS_col.insert_one(name_dict). #insert a document with the meta_data and the data to be forecasted to the TimeSeries db in the appropiate collection
+			TS_col.insert_one(name_dict) #insert a document with the meta_data and the data to be forecasted to the TimeSeries db in the appropiate collection
 		else:
 			name_dict = {'meta_data': {'name': str(docName)}}
 			Scores_col.insert_one(name_dict) #inserts a document with the meta_data to the Scores database in the according collection
@@ -143,7 +143,8 @@ def get_highScores(Scores_colPtr, docName: str):
 	result = (sorted(doc, reverse= True))
 	return result
 
-def get_dataSetNames(db) -> list:
+@app.route('/dataSets')
+def get_dataSetNames(db = mongo.db) -> list:
 	"""
 	Description: Returns a list of all of the datasets names in the TimeSeries database (partitioned by collection)  in dict_result
 	
@@ -165,7 +166,7 @@ def get_dataSetNames(db) -> list:
 			dict_results[collections[i]] = result 
 		else:
 			dict_results[collections[i]] = []
-	return dict_results
+	return list(dict_results.items())
 
 
 
