@@ -19,7 +19,7 @@
         </div>
         <div>
             <label class="bufferedLabels" for="databaseName">
-                Database Name:
+                Dataset Name:
             </label>
             <input id="databaseName" type="text" formControlName="databaseName">
         </div>
@@ -27,14 +27,14 @@
             <label class="bufferedLabels" for="modelFile">
                 Your Model:
             </label>
-            <input  class="bufferChooseFile" id="modelFile" type="file" (change)="modelChange($event)" accept=".csv, .dat">
+            <input  class="bufferChooseFile" id="modelFile" type="file" (change)="modelChange($event)" accept=".csv">
         </div>
 
         <div>
             <label class="bufferedLabels" for="databaseFile">
-                Your Database:
+                Your Dataset:
             </label>
-            <input class="bufferChooseFile" id="databaseFile" type="file" (change)="databaseChange($event)" accept=".csv, .dat">
+            <input class="bufferChooseFile" id="databaseFile" type="file" (change)="databaseChange($event)" accept=".csv">
         </div>
         <button class="button bufferedButtons" type="submit">Submit</button>
         <button class="button" type="reset">Clear</button>
