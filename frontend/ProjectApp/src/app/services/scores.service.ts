@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { User } from '../user';
-
+// Contributors: Cheyanne Kester
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +11,7 @@ export class ScoresService {
   private dummyUser: User = {
     name: "Dummy",
     databaseName: "Database",
+    collectionName: "Collection",
     gitURL: "https://www.google.com/",
     score: 0
   };

@@ -1,27 +1,18 @@
+"""
+Description: this module contains all of the functions for preprocessing timeseries data to prepare it for insertion to mongoDB
+Contributors/Authors: Austin, Sam 
+"""
+
 import pandas as pd
-
-#returns data as a dataframe
-def readData(filename):
-    raw_csv_data = pd.read_csv(filename, parse_dates = {'timeStamp': ["Year", "Month", "Date", "Time"]})  # imports our time series data
-    df_comp = raw_csv_data.copy()  # copies time series data
-    df_comp = df_comp.astype(str)
-    return df_comp
-
-# def read_file(df_comp):
-# inputFileName = input("Index2018.csv")
-# inputFile = open(inputFileName, "r")
-
-# print(read_file())
-
-
-# STRINGS INTO DATES
-# df_comp.date.describe()  # Shows our date column data.
-# df_comp.date = pd.to_datetime(df_comp.date, dayfirst=True)
 
 
 # SET INDEX df_comp.set_index("date", inplace=True)  # each date is a separate time-period so we can use the date
 # column as our index for now print(df_comp.head())
 def set_timeStamptoIndex(filename):
+    """
+    Description: concatonates date_time columns into one called 'timeStamp' sets the timeStamp to the index 
+    Usage: set_timeStamptoIndex("EARTHQUAKE_OCCURRENCES_IN_2015.csv")
+    """
     df = pd.read_csv(filename, parse_dates = {'timeStamp': ["Year", "Month", "Date", "Time"]})  # imports our time series data
     df_comp = df.copy()  # copies time series data
     df.set_index("timeStamp", inplace=True)
@@ -29,23 +20,28 @@ def set_timeStamptoIndex(filename):
     return df
 
 def set_DatetoIndex_noTS_CSV(filename):
+    """
+    Description: Sets index as row numbers for datasets without timeStamps - also forces the indices to be str type
+    Usage: set_DatetoIndex_noTS_CSV("chua_circuit.csv")
+    """
     df = pd.read_csv(filename)
     df.index = df.index.map(str)
-    #df.set_index("date", inplace = True)
+    # df.set_index("timeStamp", inplace = True)
     return df
 
+"""
+### UNUSED pandas functions that could be useful for parsing differently structured date_time data in datsets ###
+STRINGS INTO DATES
+df_comp.date.describe()  # Shows our date column data.
+df_comp.date = pd.to_datetime(df_comp.date, dayfirst=True)
 
-#print(setDatetoIndex())
 
-
-# SET CORRECT FREQUENCY
-# df_comp = df_comp.asfreq('b')  # d for daily, w for weekly, a for annually, and b for business days.
-# print(df_comp.head())
-
-# def setFreq():
-# df_comp = df_comp.asfreq('b')
-
-# print(setFreq())
+#returns data as a dataframe
+def readData(filename):
+    raw_csv_data = pd.read_csv(filename, parse_dates = {'timeStamp': ["Year", "Month", "Date", "Time"]})  # imports our time series data
+    df_comp = raw_csv_data.copy()  # copies time series data
+    df_comp = df_comp.astype(str)
+    return df_comp
 
 
 # HANDLE MISSING DATA VALUES
@@ -74,7 +70,4 @@ def frontFill(filename):
     df_comp = raw_csv_data.copy()  # copies time series data
     df_comp.spx = df_comp.spx.fillna(method='bfill')  # takes value from next period and fills
 
-
-#print(frontFill())
-
-# df_comp.dax = df_comp.dax.fillna(value=df_comp.dax.mean())  # takes average from data and fills. prob dont use this method for time series
+"""
