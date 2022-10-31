@@ -1,3 +1,9 @@
+"""
+    Name: Error calculation Score Module
+    Description: The purpose of this file is to take in two files and convert them to numpy arrays,
+    then use our mean squared formula to get our score.
+    Author: Austin
+"""
 import numpy as np
 
 # https://www.geeksforgeeks.org/python-mean-squared-error/
