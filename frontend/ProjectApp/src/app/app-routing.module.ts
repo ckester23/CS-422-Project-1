@@ -5,6 +5,7 @@ import { HighScoresComponent } from './components/high-scores/high-scores.compon
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { TestModelComponent } from './components/test-model/test-model.component';
 import { UserDocsaComponent } from './components/user-docsa/user-docsa.component';
+// Contributors: Cheyanne Kester
 
 //add paths to flask endpoints
 const routes: Routes = [

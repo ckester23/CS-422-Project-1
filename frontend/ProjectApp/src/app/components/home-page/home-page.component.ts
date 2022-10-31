@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Frame } from 'src/app/frames/frame';
 
+// Contributors: Cheyanne Kester, Scott Wallace, Ian McConachie
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',

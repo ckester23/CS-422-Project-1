@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Frame } from 'src/app/frames/frame';
 import { FrameService } from 'src/app/services/frame.service';
 
+// Contributors: Cheyanne Kester, Scott Wallace
 @Component({
   selector: 'app-databases',
   templateUrl: './databases.component.html',
